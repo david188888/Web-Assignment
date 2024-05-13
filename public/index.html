@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About-Me</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class= "container">
+    <section id="home">
+        <div class="section">
+            <h1>Welcome to My Personal Website</h1>
+        <div class="photo">
+            <img src="images/personal.jpg" alt="Profile Photo">
+        </div>
+        <div class = "section_list">
+        <div class = "smalltitle">
+        <h1>Personal Info</h1>
+        </div>
+        <p>Something simply about me</p>
+        <div class = simple_info>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ol>
+        </div>
+        <div class = icon>
+        <p>Email: 1697252093@qq.com</p>
+        <a href="https://github.com/yourusername" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+        </div>
+        </div>
+        </div>  
+    </section>
+    <section id="detail">
+        <div class="section_me">
+            <div class = "detail_title">
+            <h1>About Me</h1>
+            </div>
+            <div class = detail_info>
+            <p>Detailed information about my professional and personal interests. I am particularly interested in web technologies and their application to solve real-world problems.</p>
+        </div>
+        </div>
+    </section>
+    </div>
+    <!-- Additional sections for About-Me and Quiz can be added here -->
+</body>
+</html>
+
+
+<!-- css -->
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+nav ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+nav ul li a {
+    color: #BBBBBB;
+    text-decoration: none;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+}
+
+.photo img {
+    width: 200px;
+    height: 250px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section_me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.section_list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.simple_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    color : #BBBBBB;
+}
+
+.icon {
+    margin-top: 20px;
+    color : #BBBBBB;
+}
+
+.smalltitle {
+    color: #357abb;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.detail_info {
+    font-size: large;
+    text-align: center;
+    width: 80%;
+    color: #BBBBBB;
+}
+.detail_title {
+    font-size: x-large;
+    margin-bottom: auto;
+    color: #00FF00;
+}
+
+a .bi-github {
+  fill: currentColor;  /* 使用当前的字体颜色填充 */
+  color: #BBBBBB;     /* 设定为黑色 */
+  margin-left: 80px;
+}
+
+</style>
