@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,47 +18,79 @@
     </header>
     <div class= "container">
     <section id="home">
-        <div class="section">
-            <h1>Welcome to My Personal Website</h1>
+        <div class="left-section">
+        <div class="home_title">
+            <h1>Basic information about me</h1>
+        </div>
         <div class="photo">
             <img src="images/personal.jpg" alt="Profile Photo">
         </div>
-        <div class = "section_list">
-        <div class = "smalltitle">
-        <h1>Personal Info</h1>
-        </div>
-        <p>Something simply about me</p>
-        <div class = simple_info>
-        <ol>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-        </ol>
-        </div>
-        <div class = icon>
-        <p>Email: 1697252093@qq.com</p>
-        <a href="https://github.com/yourusername" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-          </svg>
-        </a>
-        </div>
-        </div>
-        </div>  
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>HongYu Liu</td>
+            </tr>
+            <tr>
+                <td>English Name</td>
+                <td>David</td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td>Guangdong, China</td>
+            </tr>
+            <tr>
+                <td>Occupation:</td>
+                <td>student</td>
+            </tr>
+        </table> 
+    </div>
     </section>
     <section id="detail">
+        <div class="left-section">
         <div class="section_me">
             <div class = "detail_title">
             <h1>About Me</h1>
             </div>
             <div class = detail_info>
-            <p>Detailed information about my professional and personal interests. I am particularly interested in web technologies and their application to solve real-world problems.</p>
+                <div class="section-right">
+                <table>
+                    <tr>
+                        <td>I am currently a sophomore student at the Aberdeen School of Data Science and Artificial Intelligence at South China Normal University</td>
+                    </tr>
+                    <tr>
+                        <td>I have a keen interest in the intersection of data analysis AI models and Internet,and I am seeking a challenging chance to leverage my knowledge, skills, and passion to drive innovation and create value at the convergence of these fields.</td>
+                    </tr>
+                    <tr>
+                        <td>My life motto is: We're making the world a better place. Through constructing elegant hierarchies for maximum code reuse and extensibility.</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>In the future I hope to work in data science, data mining and artificial intelligence related fields</td>
+                    </tr>
+                </table>
+            </div>
         </div>
+        <div class="email">
+            <h2>Contact Me</h2>
+        <p>Email:1697252093@qq.com</p>
         </div>
+        <div class = icon>
+            <a href="https://github.com/david188888" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/david188892/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            </div>
+    </div>
     </section>
     </div>
-    <!-- Additional sections for About-Me and Quiz can be added here -->
 </body>
 </html>
 
@@ -92,12 +125,67 @@ nav ul li {
 nav ul li a {
     color: #BBBBBB;
     text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    font-style: oblique ;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.section-right table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px; 
+}
+
+.section-right th,
+.section-right td {
+    font-weight: bold; 
+    text-align: left; 
+    padding: 10px; 
+    font-size: 18px;
+    line-height: 1.5; 
+}
+
+
+.section-right tr {
+    border: 1px solid #ccc;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.home_title {
+    text-align: center;
+    color: #fdfffd;
+    margin-top: -65px;
+}
+
 section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 20px;
     margin: 10px;
+    font-size: x-large;
+    font-style: oblique;
+}
+
+.left-section {
+    flex: 1; 
+    border-right: 5px solid #ccc;
+    padding-right: 20px; 
+    padding: 20px;
+}
+
+.right-section {
+    flex: 1; 
+    padding-right: 20px;
+    padding: 20px;
 }
 
 .photo img {
@@ -116,12 +204,6 @@ section {
     
 }
 
-.section_list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    align-items: center;
-}
 
 .simple_info {
     display: flex;
@@ -132,12 +214,39 @@ section {
 }
 
 .icon {
-    margin-top: 20px;
-    color : #BBBBBB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+    color: #BBBBBB;
+    margin-top: 0px;
+}
+
+.icon a {
+    margin: 0 10px; 
+}
+
+.icon svg {
+    width: 48px; 
+    height: 48px;
+    color: #ffffff;
+}
+
+.icon a .fab {
+    font-size: 48px; /* Set the font size to your desired icon size */
+    color: #ac2bac; /* Set the default icon color */
+}
+
+.icon a .fab:hover {
+    color: #ac2bac; /* Change color on hover */
+}
+
+.icon a {
+    margin: 0 10px; /* Adjust spacing around the icon */
 }
 
 .smalltitle {
-    color: #357abb;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -153,6 +262,9 @@ section {
     text-align: center;
     width: 80%;
     color: #BBBBBB;
+    font-style: oblique;
+    font-weight: lighter;
+    font-display: block;
 }
 .detail_title {
     font-size: x-large;
@@ -160,10 +272,29 @@ section {
     color: #00FF00;
 }
 
-a .bi-github {
-  fill: currentColor;  /* 使用当前的字体颜色填充 */
-  color: #BBBBBB;     /* 设定为黑色 */
-  margin-left: 80px;
+
+
+.email {
+    margin-top: -40px;
+    text-align: center;
+    margin-top: -2px;
+    font-size: 20px;
+    color: #BBBBBB;
+    font-style: oblique;
+    font-weight: bold;
 }
+
+.email h2 {
+    font-size: 24px; 
+    color: #ffffff; 
+    margin-bottom: -5px; 
+    margin-top: 10px;
+}
+
+.email p {
+    font-size: 18px; 
+}
+
+
 
 </style>
