@@ -1,24 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a id="home-link" href="index.html">Home</a></li>
+                <li><a id="about-link" href="About.html">About-Me</a></li>
+                <li><a id="quiz-link" href="quiz.html">Quiz</a></li>
             </ul>
         </nav>
+        <script src="navigate.js"></script>
     </header>
-    <h1>About Me</h1>
-    <p>Detailed information about my professional and personal interests. I am particularly interested in web technologies and their application to solve real-world problems.</p>
+    <div class="container">
+        <div class="left">
+            <section id="hobby" class='circle-section'>
+                <div class="circle">
+                    <div class="circle-content">
+                        <h2>Hobby</h2>
+                    </div>
+                </div>
+                <div class="details-box left-top" id="details-hobby"></div>
+            </section>
+            <section id="achievement" class="circle-section">
+                <div class="circle">
+                    <div class="circle-content">
+                        <h2>Achievement</h2>
+                    </div>
+                </div>
+                <div class="details-box left-bottom" id="details-achievement"></div>
+            </section>
+        </div>
+        <div class="right">
+            <section id="personality" class="circle-section">
+                <div class="circle">
+                    <div class="circle-content">
+                        <h2>Personality</h2>
+                    </div>
+                </div>
+                <div class="details-box right-top" id="details-personality"></div>
+            </section>
+            <section id="professional-interest" class="circle-section">
+                <div class="circle">
+                    <div class="circle-content">
+                        <h2>Professional Interest</h2>
+                    </div>
+                </div>
+                <div class="details-box right-bottom" id="details-professional-interest"></div>
+            </section>
+        </div>
+        <script src="scripts.js"></script>
+    </div>
 </body>
+
 </html>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #FFFFFF;
+    }
 
+    header {
+        background: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
 
+    nav ul {
+        display: flex;
+        list-style-type: none;
+    }
+
+    nav ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .current-page {
+        font-weight: bold;
+        font-size: x-large;
+        color: rgb(99, 245, 15);
+    }
+
+    nav ul li a {
+        color: #BBBBBB;
+        text-decoration: none;
+        font-size: large;
+        font-weight: bold;
+        font-style: oblique;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        margin-right: 250px;
+        margin-bottom: 70px;
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        margin-left: 250px;
+        margin-bottom: 70px;
+    }
+
+    .circle {
+        width: 370px;
+        height: 370px;
+        border-radius: 50%;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.5s;
+    }
+
+    .circle-container {
+        margin: 20px;
+        /* Adds space between circles */
+    }
+
+    .circle-section {
+        margin: 20px;
+    }
+
+    .circle-content {
+        text-align: center;
+        align-items: center;
+        font-style: oblique;
+        font-weight: bold;
+        font-size: x-large;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    h2 {
+        color: #FFFFFF;
+    }
+
+    .circle:hover {
+        background-color: #555;
+    }
+
+    .circle-content:hover {
+        color: #FFFFFF;
+    }
+
+    .details-box {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        padding: 20px;
+        border: 1px solid #555;
+        border-radius: 10px;
+        max-width: 300px;
+        z-index: 10;
+        color: #fff;
+    }
+
+    .left-top {
+        top: 100px;
+        left: 20px;
+    }
+
+    .right-top {
+        top: 100px;
+        right: 20px;
+    }
+
+    .left-bottom {
+        bottom: 25px;
+        left: 20px;
+    }
+
+    .right-bottom {
+        bottom: 25px;
+        right: 20px;
+    }
+
+    .details-box p {
+        margin: 10px 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .details-box hr {
+        border: 0;
+        border-top: 1px solid #555;
+        margin: 10px 0;
+    }
+</style>
