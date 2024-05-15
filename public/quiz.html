@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <script src="../src/quiz.js"></script>
+    <script src="quiz.js"></script>
 </head>
 
 <body onload="initQuiz()">
@@ -19,13 +19,21 @@
         </nav>
         <script src="navigate.js"></script>
     </header>
-    <h1>Quiz about Web Technologies</h1>
-    <div id="quiz-container">
-        <p id="question">What is HTML?</p>
-        <button onclick="nextQuestion()">Next Question</button>
+    <div class="title">
+        <h1>Quiz about me</h1>
+    </div>
+    <div class="container">
+        <div class="quiz" id="quiz">
+            <div class="question-text" id="question"></div>
+            <div id="options-container" class="options-container"></div>
+            <button onclick="submitAnswer()" id="next-question">Next Question</button>
+            <button onclick="submitAnswer()" id="submit" style="display:none;">Submit</button>
+        </div>
+        <div class="result" id="result" style="display: none;">
+            <p id="result-text">Result</p>
+        </div>
     </div>
 </body>
-
 </html>
 
 
@@ -72,4 +80,94 @@
         font-weight: bold;
         font-style: oblique;
     }
+
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #222;
+}
+
+.title, #result {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.quiz {
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 470px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.question-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-display: block;
+    text-align: center;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options-container li {
+    list-style: none;
+}
+
+.options-container label {
+    font-size: 18px;
+}
+
+.option-button {
+    padding: 10px 20px;
+    background-color: #81a2b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 50%;
+    margin-left: 150px;
+}
+
+.option-button:hover {
+    background-color: #ff0101;
+}
+
+.option-button.selected {
+    background-color: #ff0101;
+}
+
+.option-button input {
+    display: none;
+}
+
+.option-button label {
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+}
+
 </style>
