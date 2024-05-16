@@ -33,18 +33,31 @@
             <div id="timer" style="color: red; font-weight: bold;"></div>
             <div class="question-text" id="question"></div>
             <div id="options-container" class="options-container"></div>
+            <div class="alertbox" id="alertBox" style="display:none;">Please select an option</div>
             <div id="feedback" class="feedback"></div>
             <button onclick="nextQuestion()" id="next-question-btn" style="display: none;">Next question</button>
-            <button onclick="submitAnswer()" id="next-question">Submit answer</button>
-            <button onclick="submitAnswer()" id="submit" style="display:none;">Submit</button>
+            <button onclick="submitAnswer()" id="submit-answer">Submit answer</button>
+            <button onclick="submitAnswerfinal()" id="submit" style="display:none;">Show Result</button>
         </div>
         <div class="result" id="result" style="display: none;">
             <p id="result-text">Result</p>
         </div>
         <div class="leaderboard" id="leaderboard" style="display: none;">
-            <h2>Leaderboard</h2>
-            <ul id="leaderboard-list"></ul>
-    </div>
+            <div class="leaderboard-title">Leaderboard</div>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 </body>
 </html>
@@ -236,7 +249,7 @@ button:hover {
 }
 
 .feedback.correct {
-    color: green;
+    color: rgb(0, 255, 0);
 }
 
 .feedback.incorrect {
@@ -274,42 +287,46 @@ button:hover {
     text-align: center;
 }
 
-#leaderboard {
+/* ... 其他样式 ... */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 4px solid #ddd;
+    color: #ddd;
+}
+
+th {
+    background-color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #333;
+}
+
+.leaderboard-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+
+.alertbox {
     display: none;
     margin-top: 20px;
     padding: 20px;
     background-color: #333;
     border-radius: 10px;
-}
-
-#leaderboard-list {
-    list-style: none;
-    padding: 0;
-}
-
-#leaderboard-list li {
-    margin-bottom: 10px;
-}
-
-#leaderboard-list span {
-    font-weight: bold;
-}
-
-#leaderboard-list span.correct {
-    color: green;
-}
-
-#leaderboard-list span.incorrect {
+    text-align: center;
     color: red;
 }
-
-#leaderboard-list span.name {
-    font-weight: normal;
-}
-
-#leaderboard-list span.time {
-    font-weight: normal;
-}
-
 
 </style>

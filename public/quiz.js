@@ -67,27 +67,28 @@ let currentQuestion = 0;
 let score = 0;
 let userName = "";
 let totaltime = 0;
-let timetraveral;
-let starTime;
+let timeLeft = 10;
+let startTime = 0;
 const socket = io('http://localhost:8080');
+let timeInterval;
 
 
 function initQuiz() {
     document.getElementById("name-input-container").style.display = 'block';
-    document.getElementById("next-question").style.display = 'none';
+    document.getElementById("submit-answer").style.display = 'none';
     document.getElementById("submit").style.display = 'none';
 }
 
 
 function startQuiz() {
     userName = document.getElementById("name").value;
-    console.log("User name: ", userName);
     if (userName === "") {
         alert("Please enter your name");
         return;
     }
+    startTime = new Date().getTime(); 
     document.getElementById("name-input-container").style.display = 'none';
-    document.getElementById("next-question").style.display = 'block';
+    document.getElementById("submit-answer").style.display = 'block';
     showQuestion();
 }
 
@@ -99,10 +100,10 @@ function nextQuestion() {
 
 function showQuestion() {
     if (currentQuestion < quizData.length) {
+        timeLeft = 10;
         const questionElement = document.getElementById("question");
         const optionsContainer = document.getElementById("options-container");
-        const nextButton = document.getElementById("next-question");
-        const submitButton = document.getElementById("submit");
+        const nextButton = document.getElementById("submit-answer");
         const feedbackElement = document.getElementById("feedback");
         const nextQuestionBtn = document.getElementById("next-question-btn");
         const questionData = quizData[currentQuestion];
@@ -115,27 +116,15 @@ function showQuestion() {
             <label>${option}</label>
         </button>
     `).join('');
-
+        clearInterval(timeInterval);
         feedbackElement.innerHTML = '';
         feedbackElement.className = 'feedback';
         nextQuestionBtn.style.display = 'none';
-
-        if (currentQuestion === quizData.length - 1) {
-            nextButton.style.display = 'none';
-            submitButton.style.display = 'block';
-        } else {
-            nextButton.style.display = 'block';
-            submitButton.style.display = 'none';
-        }
+        nextButton.style.display = 'block';
+        document.getElementById("timer").style.display = 'block';
         startTimer();
-        console.log("User name: ", userName);
     }
     else {
-        const nextQuestionBtn = document.getElementById("next-question-btn");
-        if (nextQuestionBtn){
-            nextQuestionBtn.style.display = 'none';
-        }
-        console.log("User name: ", userName);
         showResults();
     }
 }
@@ -159,18 +148,17 @@ function selectOption(selectedOption, buttonElement) {
 function submitAnswer() {
     const answer = document.querySelector('input[name="answer"]:checked');
     const submitButton = document.getElementById("submit");
-    clearInterval(timerInterval);
     const feedbackElement = document.getElementById("feedback");
     const nextQuestionBtn = document.getElementById("next-question-btn");
-    const nextButton = document.getElementById("next-question");
+    const nextButton = document.getElementById("submit-answer");
     const questionElement = document.getElementById("question");
     const optionsContainer = document.getElementById("options-container");
 
-    questionElement.innerHTML = '';
-    optionsContainer.innerHTML = '';
-
-
     if (answer) {
+        clearInterval(timeInterval);
+        document.getElementById("timer").style.display = 'none';
+        questionElement.innerHTML = '';
+        optionsContainer.innerHTML = '';
         if (answer.value === quizData[currentQuestion].answer) {
             score++;
             feedbackElement.innerHTML = "Your answer is correct!";
@@ -180,17 +168,57 @@ function submitAnswer() {
             feedbackElement.innerHTML = `Your answer is incorrect!`;
             feedbackElement.classList.add('incorrect');
         }
-    }
-    else {
+        currentQuestion++;
+        if (currentQuestion === quizData.length) {
+            nextQuestionBtn.style.display = 'none';
+            nextButton.style.display = 'none';
+            submitButton.style.display = 'block';
+        }
+        else {
+        nextQuestionBtn.style.display = 'block';
+        nextButton.style.display = 'none';
+        }   
+
+}
+
+    else if (timeLeft <= 0){
+        clearInterval(timeInterval);
+
+        document.getElementById("timer").style.display = 'none';
+        clearInterval(timeInterval);
+        questionElement.innerHTML = '';
+        optionsContainer.innerHTML = '';
         feedbackElement.innerHTML = "Time's up! Your answer is incorrect!";
         feedbackElement.classList.add('incorrect');
-        submitButton.style.display = 'none';
-        
+        currentQuestion++;
+        if (currentQuestion === quizData.length) {
+            nextQuestionBtn.style.display = 'none';
+            nextButton.style.display = 'none';
+            submitButton.style.display = 'block';
+        }
+        else {
+        nextQuestionBtn.style.display = 'block';
+        nextButton.style.display = 'none';
+        }   
     }
-    nextQuestionBtn.style.display = 'block';
-    nextButton.style.display = 'none';
-    totaltime += (10 - parseInt(document.getElementById("timer").innerText.split(" ")[3]));
-    currentQuestion++;
+
+    else if (!answer && timeLeft > 0){
+    nextButton.style.display = 'block';
+    nextQuestionBtn.style.display = 'none';
+    document.getElementById("alertBox").style.display = 'block'; 
+    setTimeout(() => { 
+        document.getElementById("alertBox").style.display = 'none';
+    }, 1000);
+    return;
+}
+
+    let alltime = 0;
+    let endTime = new Date().getTime();
+    let timetoken = (endTime - startTime);
+    alltime += timetoken;
+    let seconds = Math.floor(alltime / 1000); 
+    let milliseconds = alltime % 1000; 
+    totaltime = `${seconds}. ${milliseconds}`;
 }
 
 function showResults() {
@@ -198,35 +226,76 @@ function showResults() {
     const quizElement = document.getElementById("quiz");
     quizElement.innerHTML = `
     <h1>Quiz Completed</h1>
-    <p>Your score: ${score}/${quizData.length}</p>
+    <p>Your score: ${score}</p>
     <p>Total time: ${totalTime} seconds</p>
 `;
-console.log("User name: ", userName);
 socket.emit('submit-results', { name: userName, score, totaltime });
 displayLeaderboard();
 }
 
-function displayLeaderboard(){
+// ... 其他 JavaScript ...
+
+function displayLeaderboard() {
     socket.emit('request-leaderboard');
     socket.on('update-leaderboard', (leaderboard) => {
-        const leaderboardList = document.getElementById("leaderboard-list");
-        leaderboardList.innerHTML = leaderboard.map(user => `
-        <li>${user.name} - Score: ${user.score} - Time: ${user.totaltime} seconds</li>
-    `).join('');
-    document.getElementById("leaderboard").style.display = 'block';
+        leaderboard.sort((a, b) => {
+            if (a.score === b.score) {
+                return parseFloat(a.totaltime) - parseFloat(b.totaltime);
+            }
+            return b.score - a.score;
+        });
+
+        const leaderboardBody = document.getElementById("leaderboard-body");
+        leaderboardBody.innerHTML = ''; 
+
+        let currentRank = 0;
+        let prevScore = -1;
+        let prevTime = Number.MAX_VALUE;
+        leaderboard.forEach((user, index) => {
+            if (user.score !== prevScore || parseFloat(user.totaltime) !== prevTime) {
+                currentRank = index + 1;
+                prevScore = user.score;
+                prevTime = parseFloat(user.totaltime);
+            }
+            const row = `
+                <tr>
+                    <td>${currentRank}</td> 
+                    <td>${user.name}</td>
+                    <td>${user.score}</td>
+                    <td>${user.totaltime} seconds</td>
+                </tr>
+            `;
+            leaderboardBody.innerHTML += row; 
+        });
+
+        document.getElementById("leaderboard").style.display = 'block';
     });
 }
 
 
+
+
 function startTimer() {
-    let timeLeft = 10;
     document.getElementById("timer").innerText = `Time to answer: ${timeLeft} seconds`;
-    timerInterval = setInterval(() => {
+    timeInterval = setInterval(() => {
         timeLeft--;
-        document.getElementById("timer").innerText = `Tima to answer:  ${timeLeft} seconds`;
+        document.getElementById("timer").innerText = `Time to answer:  ${timeLeft} seconds`;
         if (timeLeft <= 0) {
-            clearInterval(timerInterval);
+            clearInterval(timeInterval);
             submitAnswer();
+            timeLeft = 10;
         }
     }, 1000);
+}
+
+
+function submitAnswerfinal(){
+    const submitbt = document.getElementById("submit");
+    const nextquestionBtn = document.getElementById("next-question-btn");
+    clearInterval(timeInterval);
+
+    
+    nextquestionBtn.style.display = 'none';
+    submitbt.style.display = 'block';
+    showResults();
 }
