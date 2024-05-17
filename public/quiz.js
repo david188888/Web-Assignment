@@ -58,7 +58,7 @@ const quizData = [
     {
         question: "What is the largest desert in the world?",
         options: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Desert"],
-        answer: "Antarctic Desert"
+        answer: "Sahara Desert"
     }
 ]
 
@@ -265,7 +265,12 @@ function displayLeaderboard() {
                     <td>${user.totaltime} seconds</td>
                 </tr>
             `;
-            leaderboardBody.innerHTML += row; 
+            // if the user is the current player, highlight the row
+            if (user.name === userName) {
+                leaderboardBody.innerHTML += `<tr style="background-color: #f0f0f0">${row}</tr>`;
+            } else {
+                leaderboardBody.innerHTML += row;
+                } 
         });
 
         document.getElementById("leaderboard").style.display = 'block';
