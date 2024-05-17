@@ -15,7 +15,6 @@
    - [Overall Design](#1-overall-design)
     - [Design of the Navigation Bar](#2-design-of-the-navigation-bar)
     - [Design of the Quiz Application](#3-design-of-the-quiz-application)
-(#design-of-the-quiz-application)
 3. [Development Challenges](#development-challenges)
    - [Challenges Faced](#challenges-faced)
    - [Solutions and Overcoming the Challenges](#solutions-and-overcoming-the-challenges)
