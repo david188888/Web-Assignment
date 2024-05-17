@@ -1,6 +1,6 @@
 # Web Application Development Report
 
-**CS2053 Course Assignment**
+**JC2503 Course Assignment**
 
 
 **Student Name:** Hongyu Liu
