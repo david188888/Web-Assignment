@@ -2,7 +2,6 @@
 
 **CS2053 Course Assignment**
 
-University of Aberdeen
 
 **Student Name:** Hongyu Liu
 
@@ -28,9 +27,8 @@ University of Aberdeen
 
 ## Introduction
 
-In this assignment, I have created a simple yet engaging website that showcases information about myself and includes an interactive quiz application. The website is built using HTML, CSS, and JavaScript, leveraging the strengths of each technology to create a cohesive and user-friendly experience.
-
-One of the key features of my website is its clean and simple design. I have opted for a dark theme, which not only provides a modern and sleek look but also enhances readability. In addition to its design, the website also focuses on providing a convenient and interactive user experience. The about-me page includes engaging sections that highlight my hobbies, personality, achievements, and professional interests. These sections are presented in an easy-to-read format, making it effortless for visitors to learn more about me.
+In this assignment, I have created a simple yet engaging website that showcases information about myself and includes an interactive quiz application. The website is built using HTML, CSS, and JavaScript, also I used the package Socket.io and Express to implement the server-client communication and allow user to run my website on the localhost through `npm start` command.
+One of the key features of my website is its clean and simple design. I have opted for a dark theme, which not only provides a modern and sleek look but also enhances readability. In addition to its design, the website also focuses on providing a convenient and interactive user experience. The About page includes engaging sections that highlight my hobbies, personality, achievements, and professional interests. These sections are presented in an easy-to-read format, making it effortless for visitors to learn more about me.
 
 The quiz page is another notable feature of the website. Developed using JavaScript, the quiz offers an interactive way for users to engage with the content. Upon entering their name, users can start the quiz and test their knowledge. The quiz questions are dynamically populated, and the user's score is displayed at the end, providing an enjoyable and educational experience.
 
@@ -38,11 +36,11 @@ The quiz page is another notable feature of the website. Developed using JavaScr
 
 ### 1. Overall Design
 
-The website contains three main pages: the home page, the about-me page, and the quiz page. Each page is designed to be visually appealing and easy to navigate, ensuring a seamless user experience. The website is responsive and adapts to different screen sizes, making it accessible on a variety of devices.
+The website contains three main pages: the Home page, the About page, and the quiz page. Each page is designed to be visually appealing and easy to navigate, ensuring a seamless user experience. The website is responsive and adapts to different screen sizes, making it accessible on a variety of devices.
 
 The views of the website are below:
 ![Home Page](/images/Home.png)
-![About Me Page](/images/About-me.png)
+![About Page](/images/About-me.png)
 ![Quiz Page](/images/Quiz.png)
 
 ### 2. Design of the Navigation Bar
